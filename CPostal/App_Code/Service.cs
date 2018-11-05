@@ -93,7 +93,7 @@ public class Service : IService
         }
     }
 
-    public RespCPostalList Search(string searchstring, int limit, int offset, string key)
+    public RespCPostalList Search(string searchstring, string limit, string offset, string key)
     {
         try
         {
@@ -104,7 +104,7 @@ public class Service : IService
                 return r;
             }
 
-            List<CPostal> lc = CPostal.Search(searchstring, limit, offset);
+            List<CPostal> lc = CPostal.Search(searchstring, int.Parse(limit), int.Parse(offset));
 
             r.Cpostal = lc;
 
@@ -127,7 +127,7 @@ public class Service : IService
     /// <param name="offset"></param>
     /// <param name="key"></param>
     /// <returns></returns>
-    public RespCPostalList SearchByAddress(string address, int limit, int offset, string key)
+    public RespCPostalList SearchByAddress(string address, string limit, string offset, string key)
     {
         try
         {
@@ -138,7 +138,7 @@ public class Service : IService
                 return r;
             }
 
-            List<CPostal> lc = CPostal.SearchByAddress(address, limit, offset);
+            List<CPostal> lc = CPostal.SearchByAddress(address, int.Parse(limit), int.Parse(offset));
 
             r.Cpostal = lc;
 
@@ -162,7 +162,7 @@ public class Service : IService
     /// <param name="offset"></param>
     /// <param name="key"></param>
     /// <returns></returns>
-    public RespCPostalList SearchAddressOfCounty(string county, string address, int limit, int offset, string key)
+    public RespCPostalList SearchAddressOfCounty(string county, string address, string limit, string offset, string key)
     {
         try
         {
@@ -173,7 +173,7 @@ public class Service : IService
                 return r;
             }
 
-            List<CPostal> lc = CPostal.SearchAddressOfCounty(county, address, limit, offset);
+            List<CPostal> lc = CPostal.SearchAddressOfCounty(county, address, int.Parse(limit), int.Parse(offset));
 
             r.Cpostal = lc;
 
@@ -196,7 +196,7 @@ public class Service : IService
     /// <param name="offset"></param>
     /// <param name="key"></param>
     /// <returns></returns>
-    public RespCPostalList SearchByPostalCode(string cp, int limit, int offset, string key)
+    public RespCPostalList SearchByPostalCode(string cp, string limit, string offset, string key)
     {
         try
         {
@@ -207,7 +207,7 @@ public class Service : IService
                 return r;
             }
 
-            List<CPostal> lc = CPostal.SearchByCpostal(cp, limit, offset);
+            List<CPostal> lc = CPostal.SearchByCpostal(cp, int.Parse(limit), int.Parse(offset));
 
             r.Cpostal = lc;
 
@@ -231,7 +231,7 @@ public class Service : IService
     /// <param name="offset"></param>
     /// <param name="key"></param>
     /// <returns></returns>
-    public RespCPostalList SearchByDdAddress(string dd, string address, int limit, int offset, string key)
+    public RespCPostalList SearchByDdAddress(string dd, string address, string limit, string offset, string key)
     {
         try
         {
@@ -242,7 +242,7 @@ public class Service : IService
                 return r;
             }
 
-            List<CPostal> lc = CPostal.SearchByDdAddress(dd, address, limit, offset);
+            List<CPostal> lc = CPostal.SearchByDdAddress(dd, address, int.Parse(limit), int.Parse(offset));
 
             r.Cpostal = lc;
 
@@ -267,7 +267,7 @@ public class Service : IService
     /// <param name="offset"></param>
     /// <param name="key"></param>
     /// <returns></returns>
-    public RespCPostalList SearchByDdCcAddress(string dd, string cc, string address, int limit, int offset, string key)
+    public RespCPostalList SearchByDdCcAddress(string dd, string cc, string address, string limit, string offset, string key)
     {
         try
         {
@@ -278,7 +278,7 @@ public class Service : IService
                 return r;
             }
 
-            List<CPostal> lc = CPostal.SearchByDdAddress(dd, cc, address, limit, offset);
+            List<CPostal> lc = CPostal.SearchByDdAddress(dd, cc, address, int.Parse(limit), int.Parse(offset));
 
             r.Cpostal = lc;
 
@@ -302,7 +302,7 @@ public class Service : IService
     /// <param name="offset"></param>
     /// <param name="key"></param>
     /// <returns></returns>
-    public RespCPostalList SearchByDisAddress(string district, string address, int limit, int offset, string key)
+    public RespCPostalList SearchByDisAddress(string district, string address, string limit, string offset, string key)
     {
         try
         {
@@ -313,7 +313,7 @@ public class Service : IService
                 return r;
             }
 
-            List<CPostal> lc = CPostal.SearchByDisAddress(district, address, limit, offset);
+            List<CPostal> lc = CPostal.SearchByDisAddress(district, address, int.Parse(limit), int.Parse(offset));
 
             r.Cpostal = lc;
 
@@ -338,7 +338,7 @@ public class Service : IService
     /// <param name="offset"></param>
     /// <param name="key"></param>
     /// <returns></returns>
-    public RespCPostalList SearchByDisCouAddress(string district, string county, string address, int limit, int offset, string key)
+    public RespCPostalList SearchByDisCouAddress(string district, string county, string address, string limit, string offset, string key)
     {
         try
         {
@@ -349,7 +349,7 @@ public class Service : IService
                 return r;
             }
 
-            List<CPostal> lc = CPostal.SearchByDisConAddress(district, county, address, limit, offset);
+            List<CPostal> lc = CPostal.SearchByDisConAddress(district, county, address, int.Parse(limit), int.Parse(offset));
 
             r.Cpostal = lc;
 
@@ -371,7 +371,7 @@ public class Service : IService
     /// <param name="offset"></param>
     /// <param name="key"></param>
     /// <returns></returns>
-    public RespCPostalList SerachByClient(string client, int limit, int offset, string key)
+    public RespCPostalList SerachByClient(string client, string limit, string offset, string key)
     {
         try
         {
@@ -382,7 +382,7 @@ public class Service : IService
                 return r;
             }
 
-            List<CPostal> lc = CPostal.SerachByCliente(client, limit, offset);
+            List<CPostal> lc = CPostal.SerachByCliente(client, int.Parse(limit), int.Parse(offset));
 
             r.Cpostal = lc;
 
@@ -404,7 +404,7 @@ public class Service : IService
     /// <param name="offset"></param>
     /// <param name="key"></param>
     /// <returns></returns>
-    public RespDistrictList GetAllDistrits(int limit, int offset, string key)
+    public RespDistrictList GetAllDistrits(string limit, string offset, string key)
     {
         try
         {
@@ -415,7 +415,7 @@ public class Service : IService
                 return r;
             }
 
-            r.District = District.GetAll(limit, offset);
+            r.District = District.GetAll(int.Parse(limit), int.Parse(offset));
             return r;
         }
         catch (Exception e)
@@ -435,7 +435,7 @@ public class Service : IService
     /// <param name="offset"></param>
     /// <param name="key"></param>
     /// <returns></returns>
-    public RespDistrictList SearchDistrit(string district, int limit, int offset, string key)
+    public RespDistrictList SearchDistrit(string district, string limit, string offset, string key)
     {
         try
         {
@@ -446,7 +446,7 @@ public class Service : IService
                 return r;
             }
 
-            r.District = District.SearchDistrict(district, limit, offset);
+            r.District = District.SearchDistrict(district, int.Parse(limit), int.Parse(offset));
             return r;
         }
         catch (Exception e)
@@ -508,7 +508,7 @@ public class Service : IService
     /// <param name="offset"></param>
     /// <param name="key"></param>
     /// <returns></returns>
-    public RespCountyList GetAllCounties(int limit, int offset, string key)
+    public RespCountyList GetAllCounties(string limit, string offset, string key)
     {
         try
         {
@@ -519,7 +519,7 @@ public class Service : IService
                 return r;
             }
 
-            r.County = County.GetAll(limit, offset);
+            r.County = County.GetAll(int.Parse(limit), int.Parse(offset));
             return r;
         }
         catch (Exception e)
@@ -539,7 +539,7 @@ public class Service : IService
     /// <param name="offset"></param>
     /// <param name="key"></param>
     /// <returns></returns>
-    public RespCountyList SearchCounty(string coounty, int limit, int offset, string key)
+    public RespCountyList SearchCounty(string coounty, string limit, string offset, string key)
     {
         try
         {
@@ -550,7 +550,7 @@ public class Service : IService
                 return r;
             }
 
-            r.County = County.SearchCounty(coounty, limit, offset);
+            r.County = County.SearchCounty(coounty, int.Parse(limit), int.Parse(offset));
             return r;
         }
         catch (Exception e)
@@ -610,7 +610,7 @@ public class Service : IService
     /// <param name="offset"></param>
     /// <param name="key"></param>
     /// <returns></returns>
-    public RespCountyList SearchCountyOfDistrict(string dd, string county, int limit, int offset, string key)
+    public RespCountyList SearchCountyOfDistrict(string dd, string county, string limit, string offset, string key)
     {
         try
         {
@@ -621,7 +621,7 @@ public class Service : IService
                 return r;
             }
 
-            r.County = County.SearchCountyOfDistrict(dd, county, limit, offset);
+            r.County = County.SearchCountyOfDistrict(dd, county, int.Parse(limit), int.Parse(offset));
             return r;
         }
         catch (Exception e)

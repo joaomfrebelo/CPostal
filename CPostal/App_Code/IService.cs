@@ -1,5 +1,6 @@
 ﻿using System;
 using System.ServiceModel;
+using System.ServiceModel.Web;
 using joaomfrebelo.ptpostalcode;
 
 [ServiceContract]
@@ -13,6 +14,7 @@ public interface IService
     /// <param name="key"></param>
     /// <returns></returns>
     [OperationContract]
+    [WebGet(UriTemplate = "/GetPostalCode/{cp4}/{cp3}/{key}", ResponseFormat = WebMessageFormat.Json, BodyStyle = WebMessageBodyStyle.Bare)]
     RespPostalCode GetPostalCode(string cp4, string cp3, string key);
 
     /// <summary>
@@ -24,7 +26,8 @@ public interface IService
     /// <param name="key"></param>
     /// <returns></returns>
     [OperationContract]
-    RespCPostalList SearchByPostalCode(string cp, int limit, int offset, string key);
+    [WebGet(UriTemplate = "/SearchByPostalCode/{cp}/{limit}/{offset}/{key}", ResponseFormat = WebMessageFormat.Json, BodyStyle = WebMessageBodyStyle.Bare)]
+    RespCPostalList SearchByPostalCode(string cp, string limit, string offset, string key);
 
     /// <summary>
     /// Search an address by a partial address
@@ -35,7 +38,8 @@ public interface IService
     /// <param name="key"></param>
     /// <returns></returns>
     [OperationContract]
-    RespCPostalList SearchByAddress(string address, int limit, int offset, string key);
+    [WebGet(UriTemplate = "/SearchByAddress/{address}/{limit}/{offset}/{key}", ResponseFormat = WebMessageFormat.Json, BodyStyle = WebMessageBodyStyle.Bare)]
+    RespCPostalList SearchByAddress(string address, string limit, string offset, string key);
 
     /// <summary>
     /// Search addren in a county name
@@ -47,19 +51,21 @@ public interface IService
     /// <param name="key"></param>
     /// <returns></returns>
     [OperationContract]
-    RespCPostalList SearchAddressOfCounty(string county, string address, int limit, int offset, string key);
+    [WebGet(UriTemplate = "/SearchAddressOfCounty/{county}/{address}/{limit}/{offset}/{key}", ResponseFormat = WebMessageFormat.Json, BodyStyle = WebMessageBodyStyle.Bare)]
+    RespCPostalList SearchAddressOfCounty(string county, string address, string limit, string offset, string key);
 
     /// <summary>
     /// search address in a district name
     /// </summary>
-    /// <param name="county"></param>
+    /// <param name="district"></param>
     /// <param name="address"></param>
     /// <param name="limit"></param>
     /// <param name="offset"></param>
     /// <param name="key"></param>
     /// <returns></returns>
     [OperationContract]
-    RespCPostalList SearchByDisAddress(string county, string address, int limit, int offset, string key);
+    [WebGet(UriTemplate = "/SearchByDisAddress/{district}/{address}/{limit}/{offset}/{key}", ResponseFormat = WebMessageFormat.Json, BodyStyle = WebMessageBodyStyle.Bare)]
+    RespCPostalList SearchByDisAddress(string district, string address, string limit, string offset, string key);
 
     /// <summary>
     /// Search address in a county and distric name
@@ -72,7 +78,8 @@ public interface IService
     /// <param name="key"></param>
     /// <returns></returns>
     [OperationContract]
-    RespCPostalList SearchByDisCouAddress(string district, string county, string address, int limit, int offset, string key);
+    [WebGet(UriTemplate = "/SearchByDisCouAddress/{district}/{county}/{address}/{limit}/{offset}/{key}", ResponseFormat = WebMessageFormat.Json, BodyStyle = WebMessageBodyStyle.Bare)]
+    RespCPostalList SearchByDisCouAddress(string district, string county, string address, string limit, string offset, string key);
 
     /// <summary>
     /// Search address in a county id and district id
@@ -85,7 +92,8 @@ public interface IService
     /// <param name="key"></param>
     /// <returns></returns>
     [OperationContract]
-    RespCPostalList SearchByDdCcAddress(string dd, string cc, string address, int limit, int offset, string key);
+    [WebGet(UriTemplate = "/SearchByDdCcAddress/{dd}/{cc}/{address}/{limit}/{offset}/{key}", ResponseFormat = WebMessageFormat.Json, BodyStyle = WebMessageBodyStyle.Bare)]
+    RespCPostalList SearchByDdCcAddress(string dd, string cc, string address, string limit, string offset, string key);
 
     /// <summary>
     /// search address in district id
@@ -97,7 +105,8 @@ public interface IService
     /// <param name="key"></param>
     /// <returns></returns>
     [OperationContract]
-    RespCPostalList SearchByDdAddress(string dd, string address, int limit, int offset, string key);
+    [WebGet(UriTemplate = "/SearchByDdAddress/{dd}/{address}/{limit}/{offset}/{key}", ResponseFormat = WebMessageFormat.Json, BodyStyle = WebMessageBodyStyle.Bare)]
+    RespCPostalList SearchByDdAddress(string dd, string address, string limit, string offset, string key);
 
     /// <summary>
     /// Search a client address
@@ -108,7 +117,8 @@ public interface IService
     /// <param name="key"></param>
     /// <returns></returns>
     [OperationContract]
-    RespCPostalList SerachByClient(string client, int limit, int offset, string key);
+    [WebGet(UriTemplate = "/SerachByClient/{client}/{limit}/{offset}/{key}", ResponseFormat = WebMessageFormat.Json, BodyStyle = WebMessageBodyStyle.Bare)]
+    RespCPostalList SerachByClient(string client, string limit, string offset, string key);
 
     /// <summary>
     /// Get a client address
@@ -117,6 +127,7 @@ public interface IService
     /// <param name="key"></param>
     /// <returns></returns>
     [OperationContract]
+    [WebGet(UriTemplate = "/GetClient/{client}/{key}", ResponseFormat = WebMessageFormat.Json, BodyStyle = WebMessageBodyStyle.Bare)]
     RespPostalCode GetClient(string client, string key);
 
     /// <summary>
@@ -128,7 +139,8 @@ public interface IService
     /// <param name="key"></param>
     /// <returns></returns>
     [OperationContract]
-    RespCPostalList Search(String searchstring, int limit, int offset, string key);
+    [WebGet(UriTemplate = "/Search/{searchstring}/{limit}/{offset}/{key}", ResponseFormat = WebMessageFormat.Json, BodyStyle = WebMessageBodyStyle.Bare)]
+    RespCPostalList Search(String searchstring, string limit, string offset, string key);
 
     /// <summary>
     /// Get all districts
@@ -138,7 +150,8 @@ public interface IService
     /// <param name="key"></param>
     /// <returns></returns>
     [OperationContract]
-    RespDistrictList GetAllDistrits(int limit, int offset, string key);
+    [WebGet(UriTemplate = "/GetAllDistrits/{limit}/{offset}/{key}", ResponseFormat = WebMessageFormat.Json, BodyStyle = WebMessageBodyStyle.Bare)]
+    RespDistrictList GetAllDistrits(string limit, string offset, string key);
 
     /// <summary>
     /// Search district
@@ -149,7 +162,8 @@ public interface IService
     /// <param name="key"></param>
     /// <returns></returns>
     [OperationContract]
-    RespDistrictList SearchDistrit(string distrit, int limit, int offset, string key);
+    [WebGet(UriTemplate = "/SearchDistrit/{distrit}/{limit}/{offset}/{key}", ResponseFormat = WebMessageFormat.Json, BodyStyle = WebMessageBodyStyle.Bare)]
+    RespDistrictList SearchDistrit(string distrit, string limit, string offset, string key);
 
     /// <summary>
     /// Get district by id
@@ -158,6 +172,7 @@ public interface IService
     /// <param name="key"></param>
     /// <returns></returns>
     [OperationContract]
+    [WebGet(UriTemplate = "/GetDistrit/{dd}/{key}", ResponseFormat = WebMessageFormat.Json, BodyStyle = WebMessageBodyStyle.Bare)]
     RespDistrict GetDistrit(string dd, string key);
 
     /// <summary>
@@ -168,7 +183,8 @@ public interface IService
     /// <param name="key"></param>
     /// <returns></returns>
     [OperationContract]
-    RespCountyList GetAllCounties(int limit, int offset, string key);
+    [WebGet(UriTemplate = "/GetAllCounties/{limit}/{offset}/{key}", ResponseFormat = WebMessageFormat.Json, BodyStyle = WebMessageBodyStyle.Bare)]
+    RespCountyList GetAllCounties(string limit, string offset, string key);
 
     /// <summary>
     /// Serach counties
@@ -179,7 +195,8 @@ public interface IService
     /// <param name="key"></param>
     /// <returns></returns>
     [OperationContract]
-    RespCountyList SearchCounty(string county, int limit, int offset, string key);
+    [WebGet(UriTemplate = "/SearchCounty/{county}/{limit}/{offset}/{key}", ResponseFormat = WebMessageFormat.Json, BodyStyle = WebMessageBodyStyle.Bare)]
+    RespCountyList SearchCounty(string county, string limit, string offset, string key);
 
     /// <summary>
     /// Get county by id (county id and district id)
@@ -189,6 +206,7 @@ public interface IService
     /// <param name="key"></param>
     /// <returns></returns>
     [OperationContract]
+    [WebGet(UriTemplate = "/GetCounty/{dd}/{cc}/{key}", ResponseFormat = WebMessageFormat.Json, BodyStyle = WebMessageBodyStyle.Bare)]
     RespCounty GetCounty(string dd, string cc, string key);
 
     /// <summary>
@@ -201,7 +219,8 @@ public interface IService
     /// <param name="key"></param>
     /// <returns></returns>
     [OperationContract]
-    RespCountyList SearchCountyOfDistrict(string dd, string county, int limit, int offset, string key);
+    [WebGet(UriTemplate = "/SearchCountyOfDistrict/{dd}/{county}/{limit}/{offset}/{key}", ResponseFormat = WebMessageFormat.Json, BodyStyle = WebMessageBodyStyle.Bare)]
+    RespCountyList SearchCountyOfDistrict(string dd, string county, string limit, string offset, string key);
     
 }
 
